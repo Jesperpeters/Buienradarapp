@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weerbericht</title>
+    <script type="text/javascript" src="instruct_buienradarLibrary_20210211.js"></script>
+    <script type="text/javascript">
+
+      function Ishetbioscoopweer(temperature) {
+        if (temperature <= 10) {
+          return "het is perfect bioscoopweer!";
+        } else if (temperature <=15) {
+          return "Je kan naar de bioscoop.";
+        } else {
+          return "Het is lekker warm ga naar buiten.";
+        }
+
+        var temperature = currentLocation_temperature() ;
+  
+        var resultaat = isBarbecueWeer(temperature);
+        console.log(resultaat);
+      }
+        function myFunction() {
+        document.getElementById("demo").innerHTML = (Ishetbioscoopweer());
+        }
+        function myFunction2() {
+        document.getElementById('temperature').innerHTML = (currentLocation_temperature())
+        }
+      
+    </script>
+  </head>
+  
+  <body onload="loadBuienradarData(); getLocation();">
+
+  <p id="demo">A Paragraph.</p>
+
+  <button type="button" onclick="myFunction()">Try it</button>
+
+  <p id="temperature">...</p>
+  
+  </body>
+</html>

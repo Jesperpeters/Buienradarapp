@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <title>Weerbericht</title>
+  <link rel="stylesheet" type="text/css" href="jsweerapp.css">
+  <script type="text/javascript" src="instruct_buienradarLibrary_20210211.js"></script>
+  <script type="text/javascript">
+
+    function tijdbereken() {
+      var nu = new Date();
+      var uur = nu.getHours();
+  
+      if (uur >= 18) {
+        return 'Goedeavond';
+      } else if (uur >= 12) {
+        return 'Goedemiddag';
+      } else {
+        return 'Goedemorgen';
+      }
+    }
+
+    function myFunction1() {
+      var resultaat = tijdbereken();
+      document.getElementById("time").innerHTML = resultaat + " we gaan testen of het bioscoopweer is.";
+    }
+
+    function biosbereken() {
+      var koud = parseFloat(document.getElementById('koud').value);
+      var warm = parseFloat(document.getElementById('warm').value);
+
+      if (20 < koud) {
+        return 'Brrr, het is koud buiten. Ga lekker naar de bios';
+      } else if (20 > warm) {
+        return 'Het is te warm buiten. Ga lekker naar de bios.';
+      } else if (20 <= warm) {
+        return 'ga lekker naar buiten want het is mooi weer';
+      } else if (20 < koud) {
+        return 'Brrr, het is koud buiten. Ga lekker naar de bios.';
+      }
+    }
+
+    function myFunction() {
+      var resultaat = biosbereken();
+      document.getElementById("antwoord").innerHTML = resultaat;
+    }
+  </script>
+</head>
+
+<body onload="myFunction1(); loadBuienradarData(); getLocation();">
+
+ <a href="aboutweerapp.html"><button id="knopabout" type="button">about</button></a>
+
+ <div id="blok1">
+  <h2 id="time"></h2>
+  <form name="formL">
+    <p>Vanaf welke 20 krijg je het te koud (celcius)</p>
+    <input type="number" id="koud" name="koud" value="">
+    <p>Vanaf welke 20 krijg je het te warm (celcius)</p>
+    <input type="number" id="warm" name="warm" value="">
+  </form>
+
+  <button id="knop" type="button" onclick="myFunction()">Bereken</button>
+
+  <p id="antwoord">...</p>
+
+  <p>(temp staat op 20 C)</p>
+
+ </div>
+</body>
+</html>

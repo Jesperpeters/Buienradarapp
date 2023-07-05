@@ -1,0 +1,78 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('Grodijn.jfif');
+  background-size: cover;
+}
+
+#blok1 {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 150px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+p {
+  margin: 10px 0;
+}
+
+h2 {
+  margin: 10px 0;
+}
+
+input[type="number"] {
+  width: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#button-container {
+  text-align: center;
+}
+
+button {
+  padding: 12px 24px;
+  background-color: #323232;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #191a19;
+}
+
+#antwoord {
+  font-size: 18px;
+  margin-top: 20px;
+  text-align: center;
+  color: #333;
+}
+
+#knopabout {
+  right: 20px;
+  position: absolute;
+  top: 20px;
+  background-color: rgb(247, 250, 253);
+  color: #323232;
+}
+
+#knopabout:hover {
+  background-color: azure;
+}

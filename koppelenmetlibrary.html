@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <title>Weerbericht</title>
+  <link rel="stylesheet" type="text/css" href="jsweerapp.css">
+  <script type="text/javascript" src="instruct_buienradarLibrary_20210211.js"></script>
+  <script type="text/javascript">
+    function biosbereken() {
+      var koud = parseFloat(document.getElementById('koud').value);
+      var warm = parseFloat(document.getElementById('warm').value);
+
+      if (24.6 < koud) {
+        return 'Brrr, het is koud buiten. Ga lekker naar de bios';
+      } else if (24.6 > warm) {
+        return 'Ga lekker naar buiten, want het is lekker weer.';
+      } else if (24.6 < warm) {
+        return 'Het is te warm buiten. Ga lekker naar de bios.';
+      } else if (24.6 < koud) {
+        return 'Brrr, het is koud buiten. Ga lekker naar de bios.';
+      }
+    }
+
+    function myFunction() {
+      var resultaat = biosbereken();
+      document.getElementById("demo").innerHTML = resultaat;
+    }
+
+    function showWeatherInfo() {
+      time_showTime("test");
+    }
+  </script>
+</head>
+
+<body onload="loadBuienradarData(); getLocation();">
+  <a href="about.html" id="about-link">About</a>
+
+  <div id="blok1">
+
+    <h2></h2>
+    <form name="formL">
+      <p>Vanaf welke temperatuur krijg je het te koud (celcius)</p>
+      <input type="number" id="koud" name="koud" value="">
+      <p>Vanaf welke temperatuur krijg je het te warm (celcius)</p>
+      <input type="number" id="warm" name="warm" value="">
+    </form>
+
+    <div class="button-container">
+      <button id="knop" type="button" onclick="myFunction()">Try it</button>
+    </div>
+
+    <p id="demo">A Paragraph.</p>
+
+    <p id="test"></p>
+  </div>
+</body>
+</html>
